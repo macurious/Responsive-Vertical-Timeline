@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: #456990;
+  background-image: linear-gradient(#456990 30%, #111);
+  background-attachment: fixed;
+  color: #fff;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+} 		
+
+.timeline {
+	margin-left: -90%;
+	
+	h4 {
+		font-size: 1.5em;
+		font-weight: 200;
+		color: #111;
+	}
+	
+	ul li {
+		list-style-type: none;
+		position: relative;
+		width: 6px;
+		margin: 0 auto;
+		padding-top: 50px;
+		background: #17A2B8;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: inherit;			
+		}
+		
+		div {
+			position: relative;
+			bottom: -25px;
+			width: 75vw;
+			padding: 15px;
+			background: rgba(255,255,255,0.5);
+			
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 25px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+			}
+		}
+		
+		&:nth-child(odd) div {
+			left: 45px;
+			
+			&::before {
+				left: -15px;
+				border-width: 15px 15px 15px 0;
+				border-color: transparent rgba(255,255,255,0.5) transparent transparent;
+			}
+		}
+		
+		&:nth-child(even) div {
+			left: 45px;
+			
+			&::before {
+				left: -15px;
+				border-width: 15px 15px 15px 0;
+				border-color: transparent rgba(255,255,255,0.5) transparent transparent;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.timeline {
+		margin-left: 0;
+		
+		ul li {
+
+			div {
+				width: 400px;
+			}
+		
+			&:nth-child(odd) div {
+				left: -439px;
+				
+				&::before {
+					left: 400px;
+					border-width: 15px 0 15px 15px;
+					border-color: transparent transparent transparent rgba(255,255,255,0.5);
+				}
+			}	
+		}
+	}
+}	
