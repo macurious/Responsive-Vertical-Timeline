@@ -56,25 +56,21 @@ body {
 		
 		&::after {
 			content: "";
-			position: absolute;
-			
-			//left: calc(($timeline_line_width * 2) - (($timeline_line_width * 2) * 2));
-			
+			position: absolute;	
 			bottom: 0;			
 			left: 50%;
-			//transform: translateX(-50%);
-
+			//transform: translateX(-50%); // for non-animation version
 			width: $timeline_node_size;
 			height: $timeline_node_size;
 			
-			// only for optional animation
+			// for optional animation
 			transform: scale(0) translateX(-50%);
 			// /			
 			
 			border-radius: 50%;
 			background: inherit;
 			
-			// only for optional animation
+			// for optional animation
 			visibility: hidden;
 			opacity: 0;
 			transition: all 0.35s ease-in-out;
@@ -82,7 +78,7 @@ body {
 			// /
 		}
 		
-		// only for optional animation
+		// for optional animation
 		&.slide-in::after {
 			visibility: visible;
 			opacity: 1;
@@ -97,7 +93,7 @@ body {
 			padding: 1.25rem 1.75rem;
 			background: $white_transparent_color;
 			
-			// only for optional animation
+			// for optional animation
 			visibility: hidden;
 			opacity: 0;
 			transition: all 0.5s ease-in-out;
@@ -113,7 +109,7 @@ body {
 			}
 		}
 		
-		// only for optional animation
+		// for optional animation
 		&.slide-in div {
 			transform: none !important;
 			visibility: visible;
