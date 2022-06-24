@@ -8,16 +8,13 @@ $background_gradient_color: #456990;
 // Dimensions
 $timeline_line_width: 0.6rem;
 $timeline_node_size: 3rem;
-
-$timeline_card_horizontal_space: 3rem;
-$timeline_card_vertical_space: 2.5rem;
+$timeline_card_horizontal_space: 3em;
+$timeline_card_vertical_space: 2em;
 $timeline_speechbubble_arrow_size: 1.5rem;
-$timeline_margin_size: 6%;
-
+$timeline_margin_size: 2.5em;
 $timeline_card_width: 45rem;
 $timeline_card_width_negative: -$timeline_card_width;
-$timeline_width_offset: calc(100vw - $timeline_card_width / 2 + ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
-
+$timeline_width_offset: calc(100vw - ($timeline_margin_size * 2) - ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
 
 *,
 *::before,
@@ -59,11 +56,13 @@ body {
 		
 		&::after {
 			content: "";
-			position: absolute;
-			left: calc(($timeline_line_width * 2) - (($timeline_line_width * 2) * 2));
-			bottom: 0;
+			position: absolute;	
+			bottom: 0;			
+			left: 50%;
+			transform: translateX(-50%);
+
 			width: $timeline_node_size;
-			height: $timeline_node_size;
+			height: $timeline_node_size;		
 			border-radius: 50%;
 			background: inherit;
 		}
