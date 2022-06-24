@@ -1,3 +1,24 @@
+// Colors
+$blue_color: #17a2b8;
+$white_color: #fff;
+$white_transparent_color: rgba(255,255,255,0.5);
+$black_color: #111;
+$background_gradient_color: #456990;
+
+// Dimensions
+$timeline_line_width: 0.6rem;
+$timeline_node_size: 3rem;
+
+$timeline_card_horizontal_space: 3rem;
+$timeline_card_vertical_space: 2.5rem;
+$timeline_speechbubble_arrow_size: 1.5rem;
+$timeline_margin_size: 6%;
+
+$timeline_card_width: 45rem;
+$timeline_card_width_negative: -$timeline_card_width;
+$timeline_width_offset: calc(100vw - $timeline_card_width / 2 + ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
+
+
 *,
 *::before,
 *::after {
@@ -6,79 +27,113 @@
   box-sizing: border-box;
 }
 
+html {
+	font-size: 10px;
+}
+
 body {
-  font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-  background: #456990;
-  background-image: linear-gradient(#456990 30%, #111);
-  background-attachment: fixed;
-  color: #fff;
-  overflow-x: hidden;
-  padding-bottom: 50px;
+	font: normal 1.6rem/1.5 sans-serif;
+	background: $background_gradient_color;
+	background-image: linear-gradient($background_gradient_color 30%, $black_color);
+	background-attachment: fixed;
+	color: $white_color;
+	overflow-x: hidden;
+	padding-bottom: 50px;
 } 		
 
 .timeline {
-	margin-left: -90%;
 	
 	h4 {
 		font-size: 1.5em;
 		font-weight: 200;
-		color: #111;
+		color: $black_color;
 	}
 	
 	ul li {
 		list-style-type: none;
 		position: relative;
-		width: 6px;
-		margin: 0 auto;
-		padding-top: 50px;
-		background: #17A2B8;
+		width: $timeline_line_width;
+		margin: 0 $timeline_margin_size;
+		padding: $timeline_card_vertical_space 0;
+		background: $blue_color;
 		
 		&::after {
 			content: "";
 			position: absolute;
-			left: 50%;
+			//left: 50%;
+			left: calc(($timeline_line_width * 2) - (($timeline_line_width * 2) * 2));
 			bottom: 0;
-			transform: translateX(-50%);
-			width: 30px;
-			height: 30px;
+			//transform: translateX(-50%);
+			width: $timeline_node_size;
+			height: $timeline_node_size;
 			border-radius: 50%;
-			background: inherit;			
+			background: inherit;
+			
+			// only for optional animation
+			visibility: hidden;
+			opacity: 0;
+			transition: all 0.5s ease-in-out;
+			//end only for optional animation
 		}
+		
+		// only for optional animation
+		&.slide-in::after {
+			//transform: 0;
+			visibility: visible;
+			opacity: 1;
+		}
+		//end only for optional animation
 		
 		div {
 			position: relative;
-			bottom: -25px;
-			width: 75vw;
-			padding: 15px;
-			background: rgba(255,255,255,0.5);
+			top: calc($timeline_card_vertical_space * 2);
+			width: $timeline_width_offset;
+			padding: 1.25rem 1.75rem;
+			background: $white_transparent_color;
+			
+			// only for optional animation
+			visibility: hidden;
+			opacity: 0;
+			transition: all 0.5s ease-in-out;
+			//end only for optional animation
 			
 			&::before {
 				content: "";
 				position: absolute;
-				bottom: 25px;
+				bottom: $timeline_card_vertical_space;
 				width: 0;
 				height: 0;
 				border-style: solid;
 			}
 		}
 		
+		// only for optional animation
+		&.slide-in div {
+			transform: none !important;
+			visibility: visible;
+			opacity: 1;
+		}
+		//end only for optional animation
+		
 		&:nth-child(odd) div {
-			left: 45px;
+			left: calc($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size);
+			transform: translateX(-20rem);
 			
 			&::before {
-				left: -15px;
-				border-width: 15px 15px 15px 0;
-				border-color: transparent rgba(255,255,255,0.5) transparent transparent;
+				left: -$timeline_speechbubble_arrow_size;
+				border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+				border-color: transparent $white_transparent_color transparent transparent;
 			}
 		}
 		
 		&:nth-child(even) div {
-			left: 45px;
+			left: calc($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size);
+			transform: translateX(20rem);
 			
 			&::before {
-				left: -15px;
-				border-width: 15px 15px 15px 0;
-				border-color: transparent rgba(255,255,255,0.5) transparent transparent;
+				left: -$timeline_speechbubble_arrow_size;
+				border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+				border-color: transparent $white_transparent_color transparent transparent;
 			}
 		}
 	}
@@ -86,21 +141,20 @@ body {
 
 @media only screen and (min-width: 992px) {
 	.timeline {
-		margin-left: 0;
 		
 		ul li {
-
+			margin: 0 auto;
 			div {
-				width: 400px;
+				width: $timeline_card_width;
 			}
 		
-			&:nth-child(odd) div {
-				left: -439px;
+			&:nth-child(odd) div {				
+				left: calc(($timeline_card_width - $timeline_card_width * 2) - ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
 				
 				&::before {
-					left: 400px;
-					border-width: 15px 0 15px 15px;
-					border-color: transparent transparent transparent rgba(255,255,255,0.5);
+					left: $timeline_card_width;
+					border-width: $timeline_speechbubble_arrow_size 0 $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size;
+					border-color: transparent transparent transparent $white_transparent_color;
 				}
 			}	
 		}
