@@ -106,6 +106,12 @@ body {
   right: -1.5rem;
   transform: rotate(0.5turn);
 }
+.timeline.animation ul li:nth-child(odd) div {
+  transform: translateX(20rem);
+}
+.timeline.animation ul li:nth-child(even) div {
+  transform: translateX(20rem);
+}
 .timeline.animation ul li::after {
   transform: scale(0) translateX(-50%);
   visibility: hidden;
@@ -127,6 +133,12 @@ body {
   transform: none !important;
   visibility: visible;
   opacity: 1;
+}
+.timeline.right ul li:nth-child(odd) div {
+  transform: translateX(-20rem);
+}
+.timeline.right ul li:nth-child(even) div {
+  transform: translateX(-20rem);
 }
 
 @media only screen and (min-width: 992px) {
@@ -173,6 +185,12 @@ body {
     right: inherit;
     left: -1.5rem;
     transform: none;
+  }
+  .timeline.animation ul li:nth-child(odd) div {
+    transform: translateX(-20rem);
+  }
+  .timeline.animation ul li:nth-child(even) div {
+    transform: translateX(20rem);
   }
 }
 
