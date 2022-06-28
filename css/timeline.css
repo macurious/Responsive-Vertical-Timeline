@@ -106,8 +106,6 @@ body {
   right: -1.5rem;
   transform: rotate(0.5turn);
 }
-<<<<<<< HEAD
-=======
 .timeline.animation ul li:nth-child(odd) div {
   transform: translateX(20rem);
 }
@@ -142,7 +140,6 @@ body {
 .timeline.right ul li:nth-child(even) div {
   transform: translateX(-20rem);
 }
->>>>>>> timeline-animated
 
 @media only screen and (min-width: 992px) {
   .timeline ul {
@@ -189,15 +186,12 @@ body {
     left: -1.5rem;
     transform: none;
   }
-<<<<<<< HEAD
-=======
   .timeline.animation ul li:nth-child(odd) div {
     transform: translateX(-20rem);
   }
   .timeline.animation ul li:nth-child(even) div {
     transform: translateX(20rem);
   }
->>>>>>> timeline-animated
 }
 
 /*# sourceMappingURL=timeline.css.map */
