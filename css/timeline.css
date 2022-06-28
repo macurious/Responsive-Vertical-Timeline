@@ -106,6 +106,43 @@ body {
   right: -1.5rem;
   transform: rotate(0.5turn);
 }
+<<<<<<< HEAD
+=======
+.timeline.animation ul li:nth-child(odd) div {
+  transform: translateX(20rem);
+}
+.timeline.animation ul li:nth-child(even) div {
+  transform: translateX(20rem);
+}
+.timeline.animation ul li::after {
+  transform: scale(0) translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  transform-origin: left;
+}
+.timeline.animation ul li.slide-in::after {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1) translateX(-50%);
+}
+.timeline.animation ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.timeline.animation ul li.slide-in div {
+  transform: none !important;
+  visibility: visible;
+  opacity: 1;
+}
+.timeline.right ul li:nth-child(odd) div {
+  transform: translateX(-20rem);
+}
+.timeline.right ul li:nth-child(even) div {
+  transform: translateX(-20rem);
+}
+>>>>>>> timeline-animated
 
 @media only screen and (min-width: 992px) {
   .timeline ul {
@@ -152,6 +189,15 @@ body {
     left: -1.5rem;
     transform: none;
   }
+<<<<<<< HEAD
+=======
+  .timeline.animation ul li:nth-child(odd) div {
+    transform: translateX(-20rem);
+  }
+  .timeline.animation ul li:nth-child(even) div {
+    transform: translateX(20rem);
+  }
+>>>>>>> timeline-animated
 }
 
 /*# sourceMappingURL=timeline.css.map */

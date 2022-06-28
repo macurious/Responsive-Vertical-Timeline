@@ -8,6 +8,7 @@ $background_gradient_color: #456990;
 // Dimensions
 $timeline_line_width: 0.6rem;
 $timeline_node_size: 3rem;
+<<<<<<< HEAD
 
 $timeline_card_gap_x: 1.5em;
 $timeline_card_gap_y: 2em;
@@ -19,6 +20,14 @@ $timeline_margin_size: 4rem;
 $timeline_card_width: 45rem;
 $timeline_card_width_negative: -$timeline_card_width;
 
+=======
+$timeline_card_gap_x: 1.5em;
+$timeline_card_gap_y: 2em;
+$timeline_speechbubble_arrow_size: 1.5rem;
+$timeline_margin_size: 4rem;
+$timeline_card_width: 45rem;
+$timeline_card_width_negative: -$timeline_card_width;
+>>>>>>> timeline-animated
 $timeline_width_offset: calc(100vw - ($timeline_card_width / 2) + ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2));
 
 *,
@@ -75,6 +84,11 @@ body {
 				height: $timeline_node_size;		
 				border-radius: 50%;
 				background: inherit;
+<<<<<<< HEAD
+=======
+				
+				
+>>>>>>> timeline-animated
 			}
 			
 			div {
@@ -102,6 +116,7 @@ body {
 					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
 					border-color: transparent $white_transparent_color transparent transparent;
 				}
+<<<<<<< HEAD
 			}
 			
 			&:nth-child(even) div {
@@ -113,6 +128,19 @@ body {
 					border-color: transparent $white_transparent_color transparent transparent;
 				}
 			}
+=======
+			}
+			
+			&:nth-child(even) div {
+				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+				
+				&::before {
+					left: -$timeline_speechbubble_arrow_size;
+					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+					border-color: transparent $white_transparent_color transparent transparent;
+				}
+			}
+>>>>>>> timeline-animated
 		}		
 	}
 	
@@ -143,6 +171,61 @@ body {
 				left: inherit;
 				right: -$timeline_speechbubble_arrow_size;
 				transform: rotate(.5turn);
+<<<<<<< HEAD
+=======
+			}
+		}
+	}
+	
+	&.animation {
+		ul {
+			li {
+				&:nth-child(odd) div {				
+					transform: translateX(20rem);
+				}
+				&:nth-child(even) div {				
+					transform: translateX(20rem);
+				}
+			
+				&::after {
+					transform: scale(0) translateX(-50%);
+					visibility: hidden;
+					opacity: 0;
+					transition: all 0.35s ease-in-out;
+					transform-origin: left;
+				}	
+
+				&.slide-in::after {
+					visibility: visible;
+					opacity: 1;
+					transform: scale(1) translateX(-50%);
+				}	
+
+				div {
+					visibility: hidden;
+					opacity: 0;
+					transition: all 0.5s ease-in-out;
+				}	
+				
+				&.slide-in div {
+					transform: none !important;
+					visibility: visible;
+					opacity: 1;
+				}					
+			}
+		}
+	}
+	
+	&.right {
+		ul {
+			li {
+				&:nth-child(odd) div {				
+					transform: translateX(-20rem);
+				}
+				&:nth-child(even) div {				
+					transform: translateX(-20rem);
+				}
+>>>>>>> timeline-animated
 			}
 		}
 	}
@@ -154,8 +237,12 @@ body {
 		ul {
 			margin: 0 auto;
 			
+<<<<<<< HEAD
 			li {
 				
+=======
+			li {			
+>>>>>>> timeline-animated
 				div {
 					width: $timeline_card_width;
 				}
@@ -180,6 +267,56 @@ body {
 					}
 				}
 			}			
+<<<<<<< HEAD
+=======
+		}
+			
+		&.right {
+		
+			ul {
+				margin: 0 auto;
+				
+				li {
+					div {
+						width: $timeline_card_width;
+					}
+				
+					&:nth-child(odd) div {				
+						left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
+						
+						&::before {
+							left: $timeline_card_width;
+							transform: none;
+						}
+					}
+					
+					&:nth-child(even) div {
+						right: inherit;
+						left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+					
+						&::before {
+							right: inherit;
+							left: -$timeline_speechbubble_arrow_size;
+							transform: none;
+						}
+					}
+				}				
+			}
+		}
+
+		&.animation {
+			ul {
+				li {
+					&:nth-child(odd) div {				
+						transform: translateX(-20rem);
+					}	
+					
+					&:nth-child(even) div {
+						transform: translateX(20rem);
+					}
+				}			
+			}			
+>>>>>>> timeline-animated
 		}
 			
 		&.right {
