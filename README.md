@@ -1,8 +1,29 @@
-<<<<<<< HEAD
-# Responsive vertical timeline
+# Simple responsive vertical timeline with animation
 
-Simple Responsive vertical timeline 
-=======
-# Responsive-Vertical-Timeline
-Simple responsive vertical timeline
->>>>>>> de36653698aadfe8cb9a5ae5c0c3727594611653
+```
+<section class="timeline">
+```
+
+### Add animation
+
+To animate the timeline on scroll add the **animation** class
+
+```
+<section class="timeline animation">
+```
+
+### Add timeline right option
+
+On mobile devices the timeline is aligned to the left by default. If you want it on the right instead just add the additional **right** class.
+
+```
+<section class="timeline right">
+```
+
+### Add animation together with the timeline right option
+
+Animation can also be used in combination with the timeline right option.
+
+```
+<section class="timeline right animation">
+```
