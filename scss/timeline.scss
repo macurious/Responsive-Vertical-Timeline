@@ -8,26 +8,12 @@ $background_gradient_color: #456990;
 // Dimensions
 $timeline_line_width: 0.6rem;
 $timeline_node_size: 3rem;
-<<<<<<< HEAD
-
-$timeline_card_gap_x: 1.5em;
-$timeline_card_gap_y: 2em;
-
-$timeline_speechbubble_arrow_size: 1.5rem;
-
-$timeline_margin_size: 4rem;
-
-$timeline_card_width: 45rem;
-$timeline_card_width_negative: -$timeline_card_width;
-
-=======
 $timeline_card_gap_x: 1.5em;
 $timeline_card_gap_y: 2em;
 $timeline_speechbubble_arrow_size: 1.5rem;
 $timeline_margin_size: 4rem;
 $timeline_card_width: 45rem;
 $timeline_card_width_negative: -$timeline_card_width;
->>>>>>> timeline-animated
 $timeline_width_offset: calc(100vw - ($timeline_card_width / 2) + ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2));
 
 *,
@@ -84,11 +70,8 @@ body {
 				height: $timeline_node_size;		
 				border-radius: 50%;
 				background: inherit;
-<<<<<<< HEAD
-=======
 				
 				
->>>>>>> timeline-animated
 			}
 			
 			div {
@@ -116,7 +99,6 @@ body {
 					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
 					border-color: transparent $white_transparent_color transparent transparent;
 				}
-<<<<<<< HEAD
 			}
 			
 			&:nth-child(even) div {
@@ -128,19 +110,6 @@ body {
 					border-color: transparent $white_transparent_color transparent transparent;
 				}
 			}
-=======
-			}
-			
-			&:nth-child(even) div {
-				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-				
-				&::before {
-					left: -$timeline_speechbubble_arrow_size;
-					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
-					border-color: transparent $white_transparent_color transparent transparent;
-				}
-			}
->>>>>>> timeline-animated
 		}		
 	}
 	
@@ -171,8 +140,6 @@ body {
 				left: inherit;
 				right: -$timeline_speechbubble_arrow_size;
 				transform: rotate(.5turn);
-<<<<<<< HEAD
-=======
 			}
 		}
 	}
@@ -225,7 +192,6 @@ body {
 				&:nth-child(even) div {				
 					transform: translateX(-20rem);
 				}
->>>>>>> timeline-animated
 			}
 		}
 	}
@@ -237,12 +203,7 @@ body {
 		ul {
 			margin: 0 auto;
 			
-<<<<<<< HEAD
-			li {
-				
-=======
 			li {			
->>>>>>> timeline-animated
 				div {
 					width: $timeline_card_width;
 				}
@@ -267,8 +228,6 @@ body {
 					}
 				}
 			}			
-<<<<<<< HEAD
-=======
 		}
 			
 		&.right {
@@ -316,41 +275,6 @@ body {
 					}
 				}			
 			}			
->>>>>>> timeline-animated
 		}
-			
-		&.right {
-		
-			ul {
-				margin: 0 auto;
-				
-				li {
-
-					div {
-						width: $timeline_card_width;
-					}
-				
-					&:nth-child(odd) div {				
-						left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
-						
-						&::before {
-							left: $timeline_card_width;
-							transform: none;
-						}
-					}
-					
-					&:nth-child(even) div {
-						right: inherit;
-						left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-					
-						&::before {
-							right: inherit;
-							left: -$timeline_speechbubble_arrow_size;
-							transform: none;
-						}
-					}
-				}				
-			}
-		}		
 	}
 }	
