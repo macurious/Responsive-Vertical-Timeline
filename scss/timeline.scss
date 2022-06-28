@@ -8,13 +8,18 @@ $background_gradient_color: #456990;
 // Dimensions
 $timeline_line_width: 0.6rem;
 $timeline_node_size: 3rem;
-$timeline_card_horizontal_space: 3em;
-$timeline_card_vertical_space: 2em;
+
+$timeline_card_gap_x: 1.5em;
+$timeline_card_gap_y: 2em;
+
 $timeline_speechbubble_arrow_size: 1.5rem;
-$timeline_margin_size: 2.5em;
+
+$timeline_margin_size: 4rem;
+
 $timeline_card_width: 45rem;
 $timeline_card_width_negative: -$timeline_card_width;
-$timeline_width_offset: calc(100vw - ($timeline_margin_size * 2) - ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
+
+$timeline_width_offset: calc(100vw - ($timeline_card_width / 2) + ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2));
 
 *,
 *::before,
@@ -39,6 +44,8 @@ body {
 } 		
 
 .timeline {
+	display: flex;
+	justify-content: flex-start;
 	
 	h4 {
 		font-size: 1.5em;
@@ -46,120 +53,204 @@ body {
 		color: $black_color;
 	}
 	
-	ul li {
-		list-style-type: none;
-		position: relative;
-		width: $timeline_line_width;
-		margin: 0 $timeline_margin_size;
-		padding: $timeline_card_vertical_space 0;
-		background: $blue_color;
+	ul {
+		margin-left: $timeline_node_size;
 		
-		&::after {
-			content: "";
-			position: absolute;	
-			bottom: 0;			
-			left: 50%;
-			//transform: translateX(-50%); // for non-animation version
-			width: $timeline_node_size;
-			height: $timeline_node_size;
-			
-			// for optional animation
-			transform: scale(0) translateX(-50%);
-			// /			
-			
-			border-radius: 50%;
-			background: inherit;
-			
-			// for optional animation
-			visibility: hidden;
-			opacity: 0;
-			transition: all 0.35s ease-in-out;
-			transform-origin: left;
-			// /
-		}
-		
-		// for optional animation
-		&.slide-in::after {
-			visibility: visible;
-			opacity: 1;
-			transform: scale(1) translateX(-50%);
-		}
-		// /
-		
-		div {
+		li {
+			list-style-type: none;
 			position: relative;
-			top: calc($timeline_card_vertical_space * 2);
-			width: $timeline_width_offset;
-			padding: 1.25rem 1.75rem;
-			background: $white_transparent_color;
+			width: $timeline_line_width;
 			
-			// for optional animation
-			visibility: hidden;
-			opacity: 0;
-			transition: all 0.5s ease-in-out;
-			// /
+			padding: $timeline_card_gap_y 0;
+			background: $blue_color;
 			
-			&::before {
+			&::after {
 				content: "";
-				position: absolute;
-				bottom: $timeline_card_vertical_space;
-				width: 0;
-				height: 0;
-				border-style: solid;
+				position: absolute;	
+				bottom: 0;			
+				left: 50%;
+				transform: translateX(-50%);
+
+				width: $timeline_node_size;
+				height: $timeline_node_size;		
+				border-radius: 50%;
+				background: inherit;
 			}
-		}
+			
+			div {
+				position: relative;
+				top: calc($timeline_card_gap_y * 2);
+				width: $timeline_width_offset;
+				padding: 1.25rem 1.75rem;
+				background: $white_transparent_color;
+				
+				&::before {
+					content: "";
+					position: absolute;
+					bottom: $timeline_card_gap_y;
+					width: 0;
+					height: 0;
+					border-style: solid;
+				}
+			}
+			
+			&:nth-child(odd) div {
+				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+				
+				&::before {
+					left: -$timeline_speechbubble_arrow_size;
+					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+					border-color: transparent $white_transparent_color transparent transparent;
+				}
+			}
+			
+			&:nth-child(even) div {
+				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+				
+				&::before {
+					left: -$timeline_speechbubble_arrow_size;
+					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+					border-color: transparent $white_transparent_color transparent transparent;
+				}
+			}
+		}		
+	}
+	
+	&.right {
+		justify-content: flex-end;
 		
-		// for optional animation
-		&.slide-in div {
-			transform: none !important;
-			visibility: visible;
-			opacity: 1;
+		ul {
+			margin-right: $timeline_margin_size;
+			margin-left: 0;
 		}
-		// /
 		
 		&:nth-child(odd) div {
-			left: calc($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size);
-			transform: translateX(20rem);
+			left: inherit;
+			right: calc((100vw - $timeline_margin_size) - ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2 + $timeline_margin_size / 2));
 			
 			&::before {
-				left: -$timeline_speechbubble_arrow_size;
-				border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
-				border-color: transparent $white_transparent_color transparent transparent;
+				left: inherit;
+				right: -$timeline_speechbubble_arrow_size;
+				transform: rotate(.5turn);
 			}
 		}
 		
 		&:nth-child(even) div {
-			left: calc($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size);
-			transform: translateX(20rem);
-			
+			left: inherit;	
+			right: calc((100vw - $timeline_margin_size) - ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2 + $timeline_margin_size / 2));
+		
 			&::before {
-				left: -$timeline_speechbubble_arrow_size;
-				border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
-				border-color: transparent $white_transparent_color transparent transparent;
+				left: inherit;
+				right: -$timeline_speechbubble_arrow_size;
+				transform: rotate(.5turn);
 			}
 		}
+	}
+	
+	&.animation {
+		ul {
+			li {
+				&::after {
+					transform: scale(0) translateX(-50%);
+					visibility: hidden;
+					opacity: 0;
+					transition: all 0.35s ease-in-out;
+					transform-origin: left;
+				}	
+
+				&.slide-in::after {
+					visibility: visible;
+					opacity: 1;
+					transform: scale(1) translateX(-50%);
+				}	
+
+				div {
+					visibility: hidden;
+					opacity: 0;
+					transition: all 0.5s ease-in-out;
+				}	
+				
+				&.slide-in div {
+					transform: none !important;
+					visibility: visible;
+					opacity: 1;
+				}					
+			}
+			
+
+			
+		
+		}
+	
 	}
 }
 
 @media only screen and (min-width: 992px) {
 	.timeline {
 		
-		ul li {
+		ul {
 			margin: 0 auto;
-			div {
-				width: $timeline_card_width;
-			}
-		
-			&:nth-child(odd) div {				
-				left: calc(($timeline_card_width - $timeline_card_width * 2) - ($timeline_card_horizontal_space + $timeline_speechbubble_arrow_size));
-				transform: translateX(-20rem);
+			
+			li {
 				
-				&::before {
-					left: $timeline_card_width;
-					border-width: $timeline_speechbubble_arrow_size 0 $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size;
-					border-color: transparent transparent transparent $white_transparent_color;
+				div {
+					width: $timeline_card_width;
 				}
-			}	
+
+				&:nth-child(odd) div {				
+					left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
+					
+					&::before {
+						left: $timeline_card_width;
+						border-width: $timeline_speechbubble_arrow_size 0 $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size;
+						border-color: transparent transparent transparent $white_transparent_color;
+					}
+				}	
+				
+				&:nth-child(even) div {
+					left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+					
+					&::before {
+						left: -$timeline_speechbubble_arrow_size;
+						border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
+						border-color: transparent $white_transparent_color transparent transparent;
+					}
+				}
+			}			
 		}
+			
+		&.right {
+		
+			ul {
+				margin: 0 auto;
+				
+				li {
+
+					div {
+						width: $timeline_card_width;
+					}
+				
+					&:nth-child(odd) div {				
+						left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
+						
+						&::before {
+							left: $timeline_card_width;
+							transform: none;
+						}
+					}
+					
+					&:nth-child(even) div {
+						right: inherit;
+						left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
+					
+						&::before {
+							right: inherit;
+							left: -$timeline_speechbubble_arrow_size;
+							transform: none;
+						}
+					}
+				}				
+			}
+		}		
 	}
 }	
