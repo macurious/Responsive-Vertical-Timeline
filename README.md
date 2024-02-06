@@ -2,6 +2,16 @@
 
 ```
 <section class="timeline">
+	<ul>
+		<li>
+			<div>
+				<h4>Your date or title</h4>
+				<p>Your text content</p>
+			</div>
+		</li>
+		...
+	</ul>
+</section>
 ```
 
 ### Add animation
@@ -27,3 +37,5 @@ Animation can also be used in combination with the timeline right option.
 ```
 <section class="timeline right animation">
 ```
+
+[Demo](https://macurious.github.io/Responsive-Vertical-Timeline/)

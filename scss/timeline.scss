@@ -1,7 +1,7 @@
 // Colors
 $blue_color: #17a2b8;
 $white_color: #fff;
-$white_transparent_color: rgba(255,255,255,0.5);
+$white_transparent_color: rgba(255, 255, 255, 0.5);
 $black_color: #111;
 $background_gradient_color: #456990;
 
@@ -19,9 +19,9 @@ $timeline_width_offset: calc(100vw - ($timeline_card_width / 2) + ($timeline_lin
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
@@ -36,51 +36,51 @@ body {
 	color: $white_color;
 	overflow-x: hidden;
 	padding-bottom: 50px;
-} 		
+}
 
 .timeline {
 	display: flex;
 	justify-content: flex-start;
-	
+
 	h4 {
 		font-size: 1.5em;
 		font-weight: 200;
 		color: $black_color;
 	}
-	
+
 	ul {
 		margin-left: $timeline_node_size;
-		
+
 		li {
 			list-style-type: none;
 			position: relative;
 			width: $timeline_line_width;
-			
+
 			padding: $timeline_card_gap_y 0;
 			background: $blue_color;
-			
+
 			&::after {
 				content: "";
-				position: absolute;	
-				bottom: 0;			
+				position: absolute;
+				bottom: 0;
 				left: 50%;
 				transform: translateX(-50%);
 
 				width: $timeline_node_size;
-				height: $timeline_node_size;		
+				height: $timeline_node_size;
 				border-radius: 50%;
 				background: inherit;
-				
-				
+
+
 			}
-			
+
 			div {
 				position: relative;
 				top: calc($timeline_card_gap_y * 2);
 				width: $timeline_width_offset;
 				padding: 1.25rem 1.75rem;
 				background: $white_transparent_color;
-				
+
 				&::before {
 					content: "";
 					position: absolute;
@@ -90,52 +90,56 @@ body {
 					border-style: solid;
 				}
 			}
-			
+
 			&:nth-child(odd) div {
 				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-				
+
 				&::before {
-					left: -$timeline_speechbubble_arrow_size;
+					left: 1px;
 					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
 					border-color: transparent $white_transparent_color transparent transparent;
+
+					transform: translateX(-$timeline_speechbubble_arrow_size);
 				}
 			}
-			
+
 			&:nth-child(even) div {
 				left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-				
+
 				&::before {
-					left: -$timeline_speechbubble_arrow_size;
+					left: 1px;
 					border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
 					border-color: transparent $white_transparent_color transparent transparent;
+
+					transform: translateX(-$timeline_speechbubble_arrow_size);
 				}
 			}
-		}		
+		}
 	}
-	
+
 	&.right {
 		justify-content: flex-end;
-		
+
 		ul {
 			margin-right: $timeline_margin_size;
 			margin-left: 0;
 		}
-		
+
 		&:nth-child(odd) div {
 			left: inherit;
 			right: calc((100vw - $timeline_margin_size) - ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2 + $timeline_margin_size / 2));
-			
+
 			&::before {
 				left: inherit;
-				right: -$timeline_speechbubble_arrow_size;
-				transform: rotate(.5turn);
+				right: 1px;
+				transform: rotate(.5turn) translateX(-$timeline_speechbubble_arrow_size);
 			}
 		}
-		
+
 		&:nth-child(even) div {
-			left: inherit;	
+			left: inherit;
 			right: calc((100vw - $timeline_margin_size) - ($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2 + $timeline_margin_size / 2));
-		
+
 			&::before {
 				left: inherit;
 				right: -$timeline_speechbubble_arrow_size;
@@ -143,53 +147,55 @@ body {
 			}
 		}
 	}
-	
+
 	&.animation {
 		ul {
 			li {
-				&:nth-child(odd) div {				
+				&:nth-child(odd) div {
 					transform: translateX(20rem);
 				}
-				&:nth-child(even) div {				
+
+				&:nth-child(even) div {
 					transform: translateX(20rem);
 				}
-			
+
 				&::after {
 					transform: scale(0) translateX(-50%);
 					visibility: hidden;
 					opacity: 0;
 					transition: all 0.35s ease-in-out;
 					transform-origin: left;
-				}	
+				}
 
 				&.slide-in::after {
 					visibility: visible;
 					opacity: 1;
 					transform: scale(1) translateX(-50%);
-				}	
+				}
 
 				div {
 					visibility: hidden;
 					opacity: 0;
 					transition: all 0.5s ease-in-out;
-				}	
-				
+				}
+
 				&.slide-in div {
 					transform: none !important;
 					visibility: visible;
 					opacity: 1;
-				}					
+				}
 			}
 		}
 	}
-	
+
 	&.right {
 		ul {
 			li {
-				&:nth-child(odd) div {				
+				&:nth-child(odd) div {
 					transform: translateX(-20rem);
 				}
-				&:nth-child(even) div {				
+
+				&:nth-child(even) div {
 					transform: translateX(-20rem);
 				}
 			}
@@ -199,82 +205,86 @@ body {
 
 @media only screen and (min-width: 992px) {
 	.timeline {
-		
+
 		ul {
 			margin: 0 auto;
-			
-			li {			
+
+			li {
 				div {
 					width: $timeline_card_width;
 				}
 
-				&:nth-child(odd) div {				
+				&:nth-child(odd) div {
 					left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
-					
+
 					&::before {
-						left: $timeline_card_width;
+						left: calc($timeline_card_width + $timeline_speechbubble_arrow_size);
 						border-width: $timeline_speechbubble_arrow_size 0 $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size;
 						border-color: transparent transparent transparent $white_transparent_color;
 					}
-				}	
-				
+				}
+
 				&:nth-child(even) div {
 					left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-					
+
 					&::before {
-						left: -$timeline_speechbubble_arrow_size;
+						left: 1px;
 						border-width: $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size $timeline_speechbubble_arrow_size 0;
 						border-color: transparent $white_transparent_color transparent transparent;
+
+						transform: translateX(-$timeline_speechbubble_arrow_size);
 					}
 				}
-			}			
+			}
 		}
-			
+
 		&.right {
-		
+
 			ul {
 				margin: 0 auto;
-				
+
 				li {
 					div {
 						width: $timeline_card_width;
 					}
-				
-					&:nth-child(odd) div {				
+
+					&:nth-child(odd) div {
 						left: calc($timeline_card_width_negative - $timeline_card_gap_x - $timeline_speechbubble_arrow_size * 2);
-						
+
 						&::before {
 							left: $timeline_card_width;
 							transform: none;
 						}
 					}
-					
+
 					&:nth-child(even) div {
 						right: inherit;
 						left: calc($timeline_line_width + $timeline_card_gap_x + $timeline_speechbubble_arrow_size * 2);
-					
+
 						&::before {
 							right: inherit;
-							left: -$timeline_speechbubble_arrow_size;
+							left: 1px;
 							transform: none;
+
+							transform: translateX(-$timeline_speechbubble_arrow_size);
 						}
 					}
-				}				
+				}
 			}
 		}
 
 		&.animation {
 			ul {
 				li {
-					&:nth-child(odd) div {				
+					&:nth-child(odd) div {
 						transform: translateX(-20rem);
-					}	
-					
+					}
+
 					&:nth-child(even) div {
 						transform: translateX(20rem);
 					}
-				}			
-			}			
+				}
+			}
 		}
 	}
-}	
+}

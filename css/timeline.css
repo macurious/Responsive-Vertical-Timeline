@@ -69,17 +69,19 @@ body {
   left: calc(0.6rem + 1.5em + 3rem);
 }
 .timeline ul li:nth-child(odd) div::before {
-  left: -1.5rem;
+  left: 1px;
   border-width: 1.5rem 1.5rem 1.5rem 0;
   border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+  transform: translateX(-1.5rem);
 }
 .timeline ul li:nth-child(even) div {
   left: calc(0.6rem + 1.5em + 3rem);
 }
 .timeline ul li:nth-child(even) div::before {
-  left: -1.5rem;
+  left: 1px;
   border-width: 1.5rem 1.5rem 1.5rem 0;
   border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+  transform: translateX(-1.5rem);
 }
 .timeline.right {
   justify-content: flex-end;
@@ -94,8 +96,8 @@ body {
 }
 .timeline.right:nth-child(odd) div::before {
   left: inherit;
-  right: -1.5rem;
-  transform: rotate(0.5turn);
+  right: 1px;
+  transform: rotate(0.5turn) translateX(-1.5rem);
 }
 .timeline.right:nth-child(even) div {
   left: inherit;
@@ -152,7 +154,7 @@ body {
     left: calc(-45rem - 1.5em - 3rem);
   }
   .timeline ul li:nth-child(odd) div::before {
-    left: 45rem;
+    left: 46.5rem;
     border-width: 1.5rem 0 1.5rem 1.5rem;
     border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
   }
@@ -160,9 +162,10 @@ body {
     left: calc(0.6rem + 1.5em + 3rem);
   }
   .timeline ul li:nth-child(even) div::before {
-    left: -1.5rem;
+    left: 1px;
     border-width: 1.5rem 1.5rem 1.5rem 0;
     border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+    transform: translateX(-1.5rem);
   }
   .timeline.right ul {
     margin: 0 auto;
@@ -183,8 +186,9 @@ body {
   }
   .timeline.right ul li:nth-child(even) div::before {
     right: inherit;
-    left: -1.5rem;
+    left: 1px;
     transform: none;
+    transform: translateX(-1.5rem);
   }
   .timeline.animation ul li:nth-child(odd) div {
     transform: translateX(-20rem);
