@@ -6,158 +6,183 @@
     <title>Responsive Vertical Timeline</title>
     <link rel="stylesheet" href="css/timeline.css" />
     <script src="js/timeline.js" defer></script>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #dfdfdf;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+    </style>
   </head>
 
   <body>
-    <section class="timeline animation counter">
-      <ul>
-        <li>
-          <div>
-            <h4>06/1955</h4>
-            <p>Tim Berners-Lee is born in London, England.</p>
-          </div>
-        </li>
+    <div class="container">
+      <section class="timeline animation counter arrows alternate offset right">
+        <ul class="timeline__list">
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>06/1955</h4>
+              <p>Tim Berners-Lee is born in London, England.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>1976</h4>
-            <p>He graduates from The Queen's College, Oxford, with a degree in physics.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>1976</h4>
+              <p>He graduates from The Queen's College, Oxford, with a degree in physics.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>1980</h4>
-            <p>While working as a contractor at CERN, he builds ENQUIRE, an early hypertext prototype.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>1980</h4>
+              <p>While working as a contractor at CERN, he builds ENQUIRE, an early hypertext prototype.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>1984</h4>
-            <p>He returns to CERN as a fellow, where large-scale information sharing becomes a key challenge.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>1984</h4>
+              <p>He returns to CERN as a fellow, where large-scale information sharing becomes a key challenge.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>03/1989</h4>
-            <p>He submits his proposal at CERN for a distributed hypertext system that becomes the World Wide Web.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>03/1989</h4>
+              <p>He submits his proposal at CERN for a distributed hypertext system that becomes the World Wide Web.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>11/1990</h4>
-            <p>With Robert Cailliau, he formalizes the web project and begins implementing core technologies.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>11/1990</h4>
+              <p>With Robert Cailliau, he formalizes the web project and begins implementing core technologies.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>12/1990</h4>
-            <p>He creates the first web browser/editor and the first web server at CERN.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>12/1990</h4>
+              <p>He creates the first web browser/editor and the first web server at CERN.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>08/1991</h4>
-            <p>He announces the World Wide Web project publicly on the alt.hypertext newsgroup.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>08/1991</h4>
+              <p>He announces the World Wide Web project publicly on the alt.hypertext newsgroup.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>12/1991</h4>
-            <p>The first web server outside Europe is deployed at SLAC in the United States.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>12/1991</h4>
+              <p>The first web server outside Europe is deployed at SLAC in the United States.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>04/1993</h4>
-            <p>CERN places web technology in the public domain, accelerating global adoption.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>04/1993</h4>
+              <p>CERN places web technology in the public domain, accelerating global adoption.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>10/1994</h4>
-            <p>He founds the World Wide Web Consortium (W3C) at MIT to guide open web standards.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>10/1994</h4>
+              <p>He founds the World Wide Web Consortium (W3C) at MIT to guide open web standards.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2004</h4>
-            <p>He is knighted by Queen Elizabeth II for services to the global development of the internet.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2004</h4>
+              <p>He is knighted by Queen Elizabeth II for services to the global development of the internet.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2009</h4>
-            <p>He helps launch the World Wide Web Foundation to promote an open web as a public good.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2009</h4>
+              <p>He helps launch the World Wide Web Foundation to promote an open web as a public good.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2012</h4>
-            <p>He supports open data through the UK Government's Open Data Institute, founded with Nigel Shadbolt.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2012</h4>
+              <p>He supports open data through the UK Government's Open Data Institute, founded with Nigel Shadbolt.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2014</h4>
-            <p>He receives the inaugural Queen Elizabeth Prize for Engineering for his role in creating the web.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2014</h4>
+              <p>He receives the inaugural Queen Elizabeth Prize for Engineering for his role in creating the web.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2016</h4>
-            <p>He publicly pushes for stronger privacy and net neutrality protections worldwide.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2016</h4>
+              <p>He publicly pushes for stronger privacy and net neutrality protections worldwide.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2018</h4>
-            <p>He launches Inrupt to support Solid, his project for user-controlled personal data on the web.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2018</h4>
+              <p>He launches Inrupt to support Solid, his project for user-controlled personal data on the web.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2019</h4>
-            <p>He introduces the Contract for the Web, urging governments, companies, and citizens to protect the open web.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2019</h4>
+              <p>He introduces the Contract for the Web, urging governments, companies, and citizens to protect the open web.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2021</h4>
-            <p>He continues advocacy for decentralized, privacy-respecting web architecture through Solid and W3C work.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2021</h4>
+              <p>He continues advocacy for decentralized, privacy-respecting web architecture through Solid and W3C work.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>2023</h4>
-            <p>He marks over three decades of the web while emphasizing openness, interoperability, and user rights.</p>
-          </div>
-        </li>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>2023</h4>
+              <p>He marks over three decades of the web while emphasizing openness, interoperability, and user rights.</p>
+            </div>
+          </li>
 
-        <li>
-          <div>
-            <h4>Today</h4>
-            <p>As W3C Director Emeritus, he remains a leading voice for a web that is open, inclusive, and trustworthy.</p>
-          </div>
-        </li>
-      </ul>
-    </section>
+          <li class="timeline__item">
+            <div class="timeline__card">
+              <h4>Today</h4>
+              <p>As W3C Director Emeritus, he remains a leading voice for a web that is open, inclusive, and trustworthy.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
